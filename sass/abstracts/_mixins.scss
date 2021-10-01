@@ -12,3 +12,49 @@
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
+// MEDIA QUERY MANAGER
+/*
+0 - 600px:      Phone
+600-900px:      Tablet portrait
+900-1200px:     Tablet landscape
+[1200px-1800px] is where our normal style applies
+1800px + :      Big desktop
+
+$breakpoint argument choices:
+- phone
+- tab-port
+- tab-land
+- big-desktop
+
+1em = 16px
+After many tests, knowledgeable coders think ems are more reliable than rems for media queries.
+The value of the em is 16px because that is the default of the browser. It can't be changed by changing the base font-size(like when we set hmtl{font-size:62.5%}), it can only change if the browser user changes their defaultfont-size.
+*/
+
+@mixin respond($breakpoint) {
+  // 600px
+  @if $breakpoint == phone {
+    @media (max-width: 37.5em) {
+      @content;
+    }
+  }
+  // 900px
+  @if $breakpoint == tab-port {
+    @media (max-width: 56.25em) {
+      @content;
+    }
+  }
+  // 1200px
+  @if $breakpoint == tab-land {
+    @media (max-width: 75em) {
+      @content;
+    }
+  }
+  // 1800px
+  @if $breakpoint == big-desktop {
+    @media (min-width: 112.5em) {
+      @content;
+    }
+  }
+}
