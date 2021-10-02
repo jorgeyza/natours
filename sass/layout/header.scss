@@ -17,9 +17,9 @@
   }
 
   // if resolution is equal or higher than 192dpi and width is equal or higher than 600px OR if pixel density is at least 2 and and width is equal or higher than 600px OR if width is equal or higher than 2000px, the media query applies.
-  @media (min-resolution: 192dpi) and (min-width: 37.5em),
-    (-webkit-min-device-pixel-ration: 2) and (min-width: 37.5em),
-    (min-width: 125em) {
+  @media only screen and (min-resolution: 192dpi) and (min-width: 37.5em),
+    only screen and (-webkit-min-device-pixel-ration: 2) and (min-width: 37.5em),
+    only screen and (min-width: 125em) {
     background-image: linear-gradient(
         to right bottom,
         rgba($color-primary-light, 0.8),
